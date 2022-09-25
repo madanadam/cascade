@@ -9,7 +9,6 @@ all: $(SUBDIRS) patch
 $(SUBDIRS):
 	$(MAKE) -C $@ QMAKE_RULES="$(QMAKE_RULES)"
 
-pc: pc/Makefile
 pc/Makefile: hiscanemu.pro Makefile
 	mkdir -p pc ; $(QMAKE_PC) CONFIG+="$(QMAKE_RULES) " -o $@
 

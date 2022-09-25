@@ -709,11 +709,11 @@ void UI::showWarning(const char *text, const char *arg0, const char *arg1, const
 {
   QString msg;
   if (arg2)
-    msg.sprintf(text, arg0, arg1, arg2);
+    msg.asprintf(text, arg0, arg1, arg2);
   else if (arg1)
-    msg.sprintf(text, arg0, arg1);
+    msg.asprintf(text, arg0, arg1);
   else if (arg0)
-    msg.sprintf(text, arg0);
+    msg.asprintf(text, arg0);
   else
     msg = QString(text);
   
@@ -805,7 +805,7 @@ void UI::getStateNameSlot(bool save, const char *dir, const char *ext)
     fd.setAcceptMode(QFileDialog::AcceptOpen);
     fd.setFileMode(QFileDialog::ExistingFile);
   }
-  fd.setConfirmOverwrite(true);
+  fd.setOption( QFileDialog::DontConfirmOverwrite, false );
   fd.setDefaultSuffix(ext);
   
   if (current_state_name) {
@@ -898,11 +898,11 @@ void UI::fatalErrorSlot(const char *error, const char *detail, const char *arg0,
   /* fuck varargs */
   QString msg;
   if (arg2)
-    msg.sprintf(error, arg0, arg1, arg2);
+    msg.asprintf(error, arg0, arg1, arg2);
   else if (arg1)
-    msg.sprintf(error, arg0, arg1);
+    msg.asprintf(error, arg0, arg1);
   else if (arg0)
-    msg.sprintf(error, arg0);
+    msg.asprintf(error, arg0);
   else
     msg = QString(error);
     

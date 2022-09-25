@@ -54,7 +54,8 @@ SOURCES += autotty.cpp \
            os_linux.cpp \
            ui.cpp
 
-QMAKE_CXXFLAGS += -I/usr/include/libusb-1.0 -Wno-tautological-compare -Wno-deprecated-declarations -Wno-memset-elt-size
+QMAKE_CXXFLAGS += -I/usr/include/libusb-1.0 -Wno-tautological-compare 
+#-Wno-deprecated-declarations 
 QMAKE_CXXFLAGS_WARN_ON += -Wno-unused
 
 QMAKE_CXXFLAGS_RELEASE += -DNDEBUG -O3 -fomit-frame-pointer

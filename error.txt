@@ -1,0 +1,4 @@
+make -C pc QMAKE_RULES=""
+make[1]: Entering directory '/opt/build/cascade-open_public/pc'
+g++ -c -pipe -I/usr/include/libusb-1.0 -O2 -DNDEBUG -O3 -fomit-frame-pointer -Wall -Wextra -Wno-unused -D_REENTRANT -fPIC -DHAVE_FTDI -DEVENT_COMPRESSED -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -I../../cascade-open_public -I. -I../../cascade-open_public -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtCore -I. -I/usr/lib/qt5/mkspecs/linux-g++ -o ui.o ../ui.cpp
+make[1]: Leaving directory '/opt/build/cascade-open_public/pc'

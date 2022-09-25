@@ -193,5 +193,5 @@ void Eeprom::loadSaveState(statefile_t fp, bool write)
 
 void Eeprom::erase()
 {
-  memset(mem, 0, 128);
+  memset(mem, 0, sizeof(mem));
 }

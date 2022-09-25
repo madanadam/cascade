@@ -104,7 +104,7 @@ void IfaceKLFTDI::setBaudDivisor(int divisor)
     DEBUG(IFACE, "KL setting baudrate to %d\n", baudrate);
     setBitbang(false); /* also sets baudrate */
     /* lots of flushing */
-    ftdi_usb_purge_buffers(&ftdic);	/* serial port */
+    ftdi_tcioflush(&ftdic);	/* serial port */
     serial->flushRxBuf();		/* serial input buffer */
     echo_buf->flush();			/* interface echo buffer */
     /* the echo buffer must be flushed because we may have flushed an
@@ -270,7 +270,7 @@ void IfaceKLFTDI::setBitbang(bool bb)
     if (ftdi_set_baudrate(&ftdic, 8192 /* 262144 Hz (I think...) */) < 0) {
       ERROR("ftdi_set_baudrate() failed: %s\n", ftdi_get_error_string(&ftdic));
     }
-    ftdi_usb_purge_buffers(&ftdic);
+    ftdi_tcioflush(&ftdic);
     enable_sampling_read = false;
     bitbang_enabled = true;
     enable_read_thread = false;
@@ -286,7 +286,7 @@ void IfaceKLFTDI::setBitbang(bool bb)
     if (ftdi_set_baudrate(&ftdic, baudrate) < 0) {
       ERROR("FTDI set baudrate after reset failed: %s\n", ftdi_get_error_string(&ftdic));
     }
-    ftdi_usb_purge_buffers(&ftdic);
+    ftdi_tcioflush(&ftdic);
     bitbang_enabled = false;
     enable_read_thread = true;
   }
